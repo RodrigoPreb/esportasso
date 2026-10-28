@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TaskFlow</title>
+    <title>Brazinos</title>
     <link rel="stylesheet" href="./css/taskflow.css" />
   </head>
   <body>
@@ -18,23 +18,24 @@
     <main>
       <form class="formulario" id="formulario">
         <div class="campo">
-          <label class="campo__rotulo" for="titulo">Título</label>
+          <label class="campo__rotulo" for="titulo">Partida</label>
           <input
             class="campo__entrada"
             id="titulo"
             type="text"
             autocomplete="off"
+            placeholder="Ex.: Flamengo x Palmeiras"
           />
         </div>
         <div class="campo">
-          <label class="campo__rotulo" for="prioridade">Prioridade</label>
+          <label class="campo__rotulo" for="prioridade">Relevância do jogo</label>
           <select class="campo__selecao" id="prioridade">
-            <option value="baixa">Baixa</option>
-            <option value="media" selected>Média</option>
-            <option value="alta">Alta</option>
+            <option value="baixa">Comum</option>
+            <option value="media" selected>Importante</option>
+            <option value="alta">Clássico / decisão</option>
           </select>
         </div>
-        <button class="botao botao--primario" type="submit">Cadastrar</button>
+        <button class="botao botao--primario" type="submit">Cadastrar partida</button>
       </form>
       <p class="campo__erro" id="erro" role="alert"></p>
 
@@ -45,7 +46,7 @@
         </li>
         <li class="estatistica">
           <span class="estatistica__numero" id="pendentes">0</span
-          ><span class="estatistica__rotulo">Pendentes</span>
+          ><span class="estatistica__rotulo">Agendadas</span>
         </li>
       </ul>
       <p class="aviso" id="comece-por" hidden></p>

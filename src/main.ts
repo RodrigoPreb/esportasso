@@ -2,12 +2,12 @@ import { campo, elemento, selecao } from "./dom";
 import { partidas } from "./dados";
 import type { Prioridade, Partida } from "./tipos";
 import { adicionarPartida, transformar } from "./servicos";
-elemento("nome-do-sistema").textContent = "TaskFlow";
+elemento("nome-do-sistema").textContent = "Brazinos";
 elemento("versao").textContent = "v0.2.0";
 elemento("data-de-hoje").textContent = new Date().toLocaleDateString("pt-BR");
 // O estado do programa: a lista que está valendo agora
 const lista: Partida[] = [...partidas];
-// Uma tarefa vira um <li> pronto para a tela
+// Uma partida vira um <li> pronto para a tela
 function criarItem(partida: Partida): HTMLLIElement {
   const item = document.createElement("li");
   item.className = `partida partida--${partida.prioridade}`;

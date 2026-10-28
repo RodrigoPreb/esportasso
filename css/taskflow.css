@@ -1,10 +1,10 @@
-/* Folha de estilo de referência do TaskFlow. A turma recebe a sua pronta. */
+﻿/* Folha de estilo de referência do TaskFlow. A turma recebe a sua pronta. */
 :root {
   --fundo: #f4f6fa;
   --cartao: #ffffff;
   --texto: #1f1f1f;
   --suave: #5b6472;
-  --azul: #0a468c;
+  --azul: #0b7a3e;
   --borda: #dfe4ec;
   --alta: #d64545;
   --media: #e8892c;
@@ -201,7 +201,7 @@ main,
   display: grid;
   gap: 10px;
 }
-.tarefa {
+.partida {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -212,31 +212,31 @@ main,
   border-radius: 10px;
   padding: 12px 16px;
 }
-.tarefa--alta {
+.partida--alta {
   border-left-color: var(--alta);
 }
-.tarefa--baixa {
+.partida--baixa {
   border-left-color: var(--baixa);
 }
-.tarefa--concluida {
+.partida--concluida {
   opacity: 0.6;
 }
-.tarefa--concluida .tarefa__titulo {
+.partida--concluida .partida__titulo {
   text-decoration: line-through;
 }
-.tarefa--atrasada {
+.partida--atrasada {
   box-shadow: inset 0 0 0 2px var(--alta);
 }
-.tarefa__titulo {
+.partida__titulo {
   margin: 0 0 4px;
   font-size: 1.05rem;
 }
-.tarefa__descricao {
+.partida__descricao {
   margin: 0 0 6px;
   color: var(--suave);
 }
-.tarefa__meta,
-.tarefa__acoes {
+.partida__meta,
+.partida__acoes {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
@@ -264,7 +264,7 @@ main,
 .etiqueta--status {
   color: var(--suave);
 }
-.tarefa__principal {
+.partida__principal {
   flex: 1 1 260px;
   min-width: 0;
 }
@@ -277,3 +277,4 @@ main,
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
