@@ -1,5 +1,5 @@
-import type { Tarefa } from "./tipos";
-export const tarefas: Tarefa[] = [
+import type { Partida } from "./tipos";
+export const partidas: Partida[] = [
   {
     id: 1,
     titulo: "Estudar interfaces",
