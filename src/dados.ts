@@ -1,5 +1,4 @@
 import type { Partida } from "./tipos";
-// Partidas de exemplo do Brazinos (mesmas 6 do banco/script.sql, usuária Ana)
 export const partidas: Partida[] = [
   {
     id: 1,

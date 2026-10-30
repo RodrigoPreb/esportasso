@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brazinos</title>
-    <link rel="stylesheet" href="./css/taskflow.css" />
+    <title>Agenda da Bola</title>
+    <link rel="stylesheet" href="./css/AgendaDaBola.css" />
   </head>
   <body>
     <header class="cabecalho">
@@ -24,18 +24,18 @@
             id="titulo"
             type="text"
             autocomplete="off"
-            placeholder="Ex.: Flamengo x Palmeiras"
+            placeholder="Ex.: Corinthians x São Paulo"
           />
         </div>
         <div class="campo">
-          <label class="campo__rotulo" for="prioridade">Relevância do jogo</label>
+          <label class="campo__rotulo" for="prioridade">Categoria do jogo</label>
           <select class="campo__selecao" id="prioridade">
             <option value="baixa">Comum</option>
-            <option value="media" selected>Importante</option>
-            <option value="alta">Clássico / decisão</option>
+            <option value="media" selected>Decisivo</option>
+            <option value="alta">Clássico</option>
           </select>
         </div>
-        <button class="botao botao--primario" type="submit">Cadastrar partida</button>
+        <button class="botao botao--primario" type="submit">Agendar partida</button>
       </form>
       <p class="campo__erro" id="erro" role="alert"></p>
 
