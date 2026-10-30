@@ -1,8 +1,8 @@
 import { campo, elemento, selecao } from "./dom";
 import { partidas } from "./dados";
-import type { Prioridade, Partida } from "./tipos";
+import type { Categoria, Partida } from "./tipos";
 import { adicionarPartida, transformar } from "./servicos";
-elemento("nome-do-sistema").textContent = "Brazinos";
+elemento("nome-do-sistema").textContent = "Agenda da Bola";
 elemento("versao").textContent = "v0.2.0";
 elemento("data-de-hoje").textContent = new Date().toLocaleDateString("pt-BR");
 // O estado do programa: a lista que está valendo agora
@@ -10,13 +10,13 @@ const lista: Partida[] = [...partidas];
 // Uma partida vira um <li> pronto para a tela
 function criarItem(partida: Partida): HTMLLIElement {
   const item = document.createElement("li");
-  item.className = `partida partida--${partida.prioridade}`;
+  item.className = `partida partida--${partida.categoria}`;
   const titulo = document.createElement("h3");
   titulo.className = "partida__titulo";
   titulo.textContent = `#${partida.id} ${partida.titulo}`;
   const etiqueta = document.createElement("span");
-  etiqueta.className = `etiqueta etiqueta--${partida.prioridade}`;
-  etiqueta.textContent = partida.prioridade;
+  etiqueta.className = `etiqueta etiqueta--${partida.categoria}`;
+  etiqueta.textContent = partida.categoria;
   item.append(titulo, etiqueta);
   return item;
 }
@@ -40,7 +40,7 @@ elemento("formulario").addEventListener("submit", (evento) => {
   try {
     adicionarPartida(lista, {
       titulo: campo("titulo").value.trim(),
-      prioridade: selecao("prioridade").value as Prioridade,
+    categoria: selecao("categoria").value as Categoria,
       tags: [],
     });
     campo("titulo").value = "";
