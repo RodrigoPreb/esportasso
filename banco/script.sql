@@ -1,8 +1,8 @@
 SET NAMES utf8mb4;   -- garante os acentos quando o script roda pelo terminal
-DROP DATABASE IF EXISTS brazinos;
-CREATE DATABASE brazinos CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+DROP DATABASE IF EXISTS AgendadaBola;
+CREATE DATABASE AgendadaBola CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;;
 -- Se aparecer "Unknown collation 'utf8mb4_0900_ai_ci'" (MariaDB/XAMPP), troque por utf8mb4_unicode_ci
-USE brazinos;
+USE AgendadaBola;
 
 CREATE TABLE usuarios (
   id          INT UNSIGNED  NOT NULL AUTO_INCREMENT,
