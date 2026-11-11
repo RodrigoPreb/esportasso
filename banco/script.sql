@@ -1,6 +1,6 @@
 SET NAMES utf8mb4;   -- garante os acentos quando o script roda pelo terminal
 DROP DATABASE IF EXISTS AgendadaBola;
-CREATE DATABASE AgendadaBola CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;;
+CREATE DATABASE AgendadaBola CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 -- Se aparecer "Unknown collation 'utf8mb4_0900_ai_ci'" (MariaDB/XAMPP), troque por utf8mb4_unicode_ci
 USE AgendadaBola;
 
@@ -19,7 +19,7 @@ CREATE TABLE partidas (
   usuario_id    INT UNSIGNED  NOT NULL,
   titulo        VARCHAR(120)  NOT NULL,        -- ex.: 'Flamengo x Palmeiras'
   descricao     TEXT          NULL,
-  prioridade    ENUM('baixa', 'media', 'alta')                  NOT NULL DEFAULT 'media',
+  categoria     ENUM('comum', 'decisivo', 'clássico')           NOT NULL DEFAULT 'decisivo',
   status        ENUM('pendente', 'em_andamento', 'concluida')   NOT NULL DEFAULT 'pendente',
   data_partida  DATE          NULL,            -- equivale ao "prazo" do PDF
   criada_em     DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -58,14 +58,14 @@ INSERT INTO usuarios (id, nome, email, senha_hash) VALUES
   (2, 'Bruno', 'bruno@brazinos.com', '$2b$10$yQBH.u6NtyqM6C/bTzPhDOTkHZYvuD2XWIXi4YZGIPX4ejdq5QrSK');
 
 -- As mesmas 6 partidas do dados.ts (da Ana) + 1 do Bruno = 7 linhas
-INSERT INTO partidas (id, usuario_id, titulo, descricao, prioridade, status, data_partida, concluida_em) VALUES
-  (1, 1, 'Flamengo x Palmeiras',     NULL,                            'alta',  'pendente',     '2026-11-08', NULL),
-  (2, 1, 'Corinthians x São Paulo',  'Majestoso, jogo já encerrado',  'alta',  'concluida',    '2026-10-25', '2026-10-25 20:00:00'),
-  (3, 1, 'Grêmio x Internacional',   'Gre-Nal, segundo tempo',        'alta',  'em_andamento', '2026-10-28', NULL),
-  (4, 1, 'Santos x Vasco',           NULL,                            'media', 'pendente',     '2026-11-09', NULL),
-  (5, 1, 'Bahia x Fortaleza',        NULL,                            'media', 'pendente',     '2026-11-10', NULL),
-  (6, 1, 'Juventude x Bragantino',   NULL,                            'baixa', 'pendente',     NULL,         NULL),
-  (7, 2, 'Cruzeiro x Atlético-MG',   NULL,                            'alta',  'pendente',     '2026-11-11', NULL);
+INSERT INTO partidas (id, usuario_id, titulo, descricao, categoria, status, data_partida, concluida_em) VALUES
+  (1, 1, 'Flamengo x Palmeiras',     NULL,                            'clássico',  'pendente',     '2026-11-08', NULL),
+  (2, 1, 'Corinthians x São Paulo',  'Majestoso, jogo já encerrado',  'clássico',  'concluida',    '2026-10-25', '2026-10-25 20:00:00'),
+  (3, 1, 'Grêmio x Internacional',   'Gre-Nal, segundo tempo',        'clássico',  'em_andamento', '2026-10-28', NULL),
+  (4, 1, 'Santos x Vasco',           NULL,                            'decisivo', 'pendente',     '2026-11-09', NULL),
+  (5, 1, 'Bahia x Fortaleza',        NULL,                            'decisivo', 'pendente',     '2026-11-10', NULL),
+  (6, 1, 'Juventude x Bragantino',   NULL,                            'comum', 'pendente',     NULL,         NULL),
+  (7, 2, 'Cruzeiro x Atlético-MG',   NULL,                            'clássico',  'pendente',     '2026-11-11', NULL);
 
 INSERT INTO tags (id, usuario_id, nome) VALUES
   (1, 1, 'clássico'),
