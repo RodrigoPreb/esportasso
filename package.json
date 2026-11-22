@@ -1,0 +1,14 @@
+{
+  "name": "agenda-da-bola",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "verificar": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

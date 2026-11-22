@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda da Bola</title>
+    <link rel="stylesheet" href="./css/AgendaDaBola.css" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div>
+        <h1 class="cabecalho__titulo"><span id="nome-do-sistema">—</span></h1>
+        <p class="cabecalho__subtitulo">
+          <span id="versao">—</span> · <span id="data-de-hoje">—</span>
+        </p>
+      </div>
+      <div class="cabecalho__acoes">
+        <span id="usuario-nome"></span>
+        <button id="botao-sair" class="botao botao--pequeno" type="button">Sair</button>
+      </div>
+    </header>
+
+    <!-- A tela de entrada: aparece quando não há sessão -->
+    <section id="tela-entrada" class="entrada">
+      <form class="formulario" id="form-entrar">
+        <h2>Entrar</h2>
+        <div class="campo">
+          <label class="campo__rotulo" for="entrar-email">E-mail</label>
+          <input class="campo__entrada" id="entrar-email" type="email" />
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="entrar-senha">Senha</label>
+          <input class="campo__entrada" id="entrar-senha" type="password" />
+        </div>
+        <button class="botao botao--primario" type="submit">Entrar</button>
+      </form>
+
+      <form class="formulario" id="form-criar" hidden>
+        <h2>Criar conta</h2>
+        <div class="campo">
+          <label class="campo__rotulo" for="criar-nome">Nome</label>
+          <input class="campo__entrada" id="criar-nome" type="text" />
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="criar-email">E-mail</label>
+          <input class="campo__entrada" id="criar-email" type="email" />
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="criar-senha">Senha (6 caracteres ou mais)</label>
+          <input class="campo__entrada" id="criar-senha" type="password" />
+        </div>
+        <button class="botao botao--primario" type="submit">Criar conta</button>
+      </form>
+
+      <button class="botao botao--pequeno" id="alternar-entrada" type="button">
+        Ainda não tenho conta
+      </button>
+      <p class="campo__erro" id="erro-entrada" role="alert"></p>
+    </section>
+
+    <!-- Todo o resto da página: aparece só depois do login -->
+    <main id="tela-app" hidden>
+      <form class="formulario" id="formulario">
+        <div class="campo">
+          <label class="campo__rotulo" for="titulo">Partida</label>
+          <input
+            class="campo__entrada"
+            id="titulo"
+            type="text"
+            autocomplete="off"
+            placeholder="Ex.: Corinthians x São Paulo"
+          />
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="categoria">Categoria do jogo</label>
+          <select class="campo__selecao" id="categoria">
+            <option value="comum">Comum</option>
+            <option value="decisivo" selected>Decisivo</option>
+            <option value="clássico">Clássico</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="data">Data do jogo</label>
+          <input class="campo__entrada" id="data" type="date" />
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="tags">Tags (separadas por vírgula)</label>
+          <input
+            class="campo__entrada"
+            id="tags"
+            type="text"
+            autocomplete="off"
+            placeholder="Ex.: rodada-32, clássico"
+          />
+        </div>
+        <button class="botao botao--primario" type="submit">Agendar partida</button>
+      </form>
+      <p class="campo__erro" id="erro" role="alert"></p>
+
+      <p id="aviso-urgente" class="aviso aviso--oculto">
+        Atenção: há clássicos ainda agendados.
+      </p>
+
+      <ul class="estatisticas">
+        <li class="estatistica">
+          <span class="estatistica__numero" id="total">0</span>
+          <span class="estatistica__rotulo">Total</span>
+        </li>
+        <li class="estatistica">
+          <span class="estatistica__numero" id="pendentes">0</span>
+          <span class="estatistica__rotulo">Agendadas</span>
+        </li>
+        <li class="estatistica">
+          <span class="estatistica__numero" id="em-andamento">0</span>
+          <span class="estatistica__rotulo">Em andamento</span>
+        </li>
+        <li class="estatistica">
+          <span class="estatistica__numero" id="concluidas">0</span>
+          <span class="estatistica__rotulo">Encerradas</span>
+        </li>
+      </ul>
+
+      <div class="filtros">
+        <div class="filtros__grupo" id="filtros-status">
+          <button class="filtro filtro--ativo" type="button" data-status="todos">Todas</button>
+          <button class="filtro" type="button" data-status="pendente">Agendadas</button>
+          <button class="filtro" type="button" data-status="em_andamento">Em andamento</button>
+          <button class="filtro" type="button" data-status="concluida">Encerradas</button>
+        </div>
+        <input
+          class="busca"
+          id="busca"
+          type="search"
+          placeholder="Pesquisar por jogo ou tag..."
+        />
+      </div>
+
+      <ul class="lista" id="lista"></ul>
+      <p class="vazio" id="vazio" hidden>Nenhuma partida encontrada.</p>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
